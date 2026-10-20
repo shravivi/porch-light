@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Porch Light: a mutual aid board</title>
+<meta name="description" content="Neighbors post what they can offer and what they need. Printable, offline, no account.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Porch Light</h1>
+  <p>A board for neighbors to post what they can offer and what they need: rides, meals, a hand moving a couch. Leave the light on for each other.</p>
+</header>
+<main>
+  <form id="add">
+    <h2>Post to the board</h2>
+    <fieldset>
+      <legend>This is</legend>
+      <label><input type="radio" name="type" value="offer" checked> An offer</label>
+      <label><input type="radio" name="type" value="need"> A need</label>
+    </fieldset>
+    <label>Title <input name="title" required maxlength="70" placeholder="Rides to the clinic on Thursdays"></label>
+    <label>Details <textarea name="details" rows="3" maxlength="300" placeholder="Days, times, anything helpful"></textarea></label>
+    <label>Area <input name="area" maxlength="40" placeholder="Elm St. and nearby"></label>
+    <label>How to reach you <input name="contact" required maxlength="60" placeholder="Phone, email or door number"></label>
+    <p class="warn">Only share contact details you are comfortable with. Meet in public places when you can.</p>
+    <button class="primary">Post</button>
+  </form>
+
+  <section>
+    <div class="tabs" role="tablist" aria-label="Filter posts">
+      <button role="tab" data-f="all" aria-selected="true">All</button>
+      <button role="tab" data-f="offer" aria-selected="false">Offers</button>
+      <button role="tab" data-f="need" aria-selected="false">Needs</button>
+      <button role="tab" data-f="done" aria-selected="false">Done</button>
+    </div>
+    <input id="q" type="search" placeholder="Search the board" aria-label="Search">
+    <div id="board" aria-live="polite"></div>
+    <div class="tools">
+      <button id="print">Print board</button>
+      <button id="export">Export backup</button>
+      <label class="btn">Import <input id="import" type="file" accept="application/json" hidden></label>
+    </div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
